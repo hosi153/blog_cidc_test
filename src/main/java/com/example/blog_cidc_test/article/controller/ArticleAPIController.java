@@ -27,6 +27,11 @@ public class ArticleAPIController {
         this.articleMapper = articleMapper;
 
     }
+    @GetMapping("/")
+    public String getArticle(){
+
+        return "Hello hg";
+    }
 
 
 
