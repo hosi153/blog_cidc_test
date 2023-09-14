@@ -26,7 +26,7 @@ jobs:
           docker build -t blog_cidc_test .
           docker tag blog_cidc_test hosi153/blog_cidc_test:${GITHUB_SHA::7}
           docker push hosi153/blog_cidc_test:${GITHUB_SHA::7}
-          - name: Deploy
+      - name: Deploy
         uses: appleboy/ssh-action@master
         with:
           host: ec2-54-86-164-156.compute-1.amazonaws.com
@@ -36,7 +36,7 @@ jobs:
           script: |
             docker pull hosi153/blog_cidc_test:${GITHUB_SHA::7}
             docker tag blog_cidc_test/blog_cidc_test:${GITHUB_SHA::7} blog_cidc_test
-            docker stop server
-            docker rm -f server
+            docker stop blog
+            docker rm -f blog
             docker run -d --name blog -p 8080:8080 blog_cidc_test
 
