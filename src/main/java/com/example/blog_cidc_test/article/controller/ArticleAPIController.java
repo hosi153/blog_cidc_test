@@ -30,7 +30,7 @@ public class ArticleAPIController {
     @GetMapping("/")
     public String getArticle(){
 
-        return "Hello hg";
+        return "Hello Welcome hg";
     }
 
 
